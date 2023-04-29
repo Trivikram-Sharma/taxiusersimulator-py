@@ -1,0 +1,21 @@
+version: 0.0
+
+
+os: linux
+files:
+    - source : /
+      destination : /
+
+hooks:
+      ApplicationStop:
+          - location: scripts/ApplicationStop.sh
+            timeout: 300
+      BeforeInstall:
+          - location: scripts/PreInstall.sh
+            timeout: 300
+      AfterInstall:
+          - location: scripts/PostInstall.sh
+            timeout: 300
+      ApplicationStart:
+          - location: scripts/ApplicationStart.sh
+            timeout: 300
